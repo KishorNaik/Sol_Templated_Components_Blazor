@@ -1,0 +1,31 @@
+﻿@page "/template/listview"
+@typeparam TItem
+
+<div>
+    @Templates
+</div>
+
+
+<ul>
+    @foreach(var item in Items)
+    {
+        <li>
+            @ItemTemplate(item)
+        </li>
+    }
+</ul>
+
+
+@code {
+
+    [Parameter]
+    public RenderFragment Templates { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+
+    [Parameter]
+    //public IEnumerable<TItem> Items { get; set; }
+    public IReadOnlyList<TItem> Items { get; set; }
+
+}

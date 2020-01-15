@@ -1,0 +1,46 @@
+﻿@page "/"
+@using Sol_Demo.Models
+@using Sol_Demo.Pages.Demo
+<h1>Hello, world!</h1>
+
+
+Welcome to your new app.
+
+
+
+<ListViewTemplateComponent Items="ListUser">
+
+    <Templates>
+        <h2>Hello</h2>
+    </Templates>
+
+    <ItemTemplate>
+        <div class="alert alert-primary">
+            <h2>
+                @($"{context.FirstName} {context.LastName}")
+            </h2>
+            
+        </div>
+    </ItemTemplate>
+</ListViewTemplateComponent>
+
+
+
+@code{
+
+    private List<UserModel> ListUser = new List<UserModel>()
+    {
+        new UserModel()
+        {
+            FirstName="Kishor",
+            LastName="Naik"
+        },
+        new UserModel()
+        {
+            FirstName="Eshaan",
+            LastName="Naik"
+        }
+    };
+
+    
+}
