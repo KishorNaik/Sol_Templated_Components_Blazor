@@ -1,0 +1,26 @@
+﻿
+<button  @onclick="@Toggle" class="btn btn-success">@ActionText</button>
+@if (!Collapsed)
+{
+    <div class="card card-body">
+        @ChildContent
+    </div>
+}
+
+
+
+@code {
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; } // Must be Name as ChildContent for Component inside the Component or you can add any html elements.
+
+    [Parameter]
+    public bool Collapsed { get; set; }
+
+    private string ActionText { get => Collapsed ? "Expand" : "Collapse"; }
+    private void Toggle()
+    {
+        Collapsed = !Collapsed;
+        StateHasChanged();
+    }
+}
