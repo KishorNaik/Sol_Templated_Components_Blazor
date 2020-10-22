@@ -1,13 +1,21 @@
 ﻿@page "/comp/index"
 
+<CollapsibleComponent Collapsed="true">
+    <ChildComponent Message="Kishor Naik"></ChildComponent>
+    <ChildComponent Message="Eshaan Naik"></ChildComponent>
+</CollapsibleComponent>
 
-    <CollapsibleComponent Collapsed="true">
+<CollapsibleComponent Collapsed="true">
 
+    <MyTemplate>
+        <h1>Hello Render Fragment</h1>
+    </MyTemplate>
+
+    <ChildContent>
         <ChildComponent Message="Kishor Naik"></ChildComponent>
         <ChildComponent Message="Eshaan Naik"></ChildComponent>
-        
-    </CollapsibleComponent>
-
+    </ChildContent>
+</CollapsibleComponent>
 
 @code {
 

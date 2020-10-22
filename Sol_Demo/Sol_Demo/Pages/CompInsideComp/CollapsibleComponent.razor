@@ -1,18 +1,24 @@
-﻿
-<button  @onclick="@Toggle" class="btn btn-success">@ActionText</button>
+﻿<button @onclick="@Toggle" class="btn btn-success">@ActionText</button>
 @if (!Collapsed)
 {
+    <div class="card card-body">
+        @MyTemplate
+    </div>
+
     <div class="card card-body">
         @ChildContent
     </div>
 }
 
-
-
 @code {
 
+    // Render Multiple Child Components.
     [Parameter]
-    public RenderFragment ChildContent { get; set; } // Must be Name as ChildContent for Component inside the Component or you can add any html elements.
+    public RenderFragment ChildContent { get; set; } // Must be Name as ChildContent for Component inside the Component and you can add any html elements.
+
+    // Render One time  Html Elements
+    [Parameter]
+    public RenderFragment MyTemplate { get; set; }
 
     [Parameter]
     public bool Collapsed { get; set; }
